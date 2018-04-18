@@ -19,6 +19,7 @@ package com.android.systemui;
 import android.app.AlarmManager;
 import android.content.Context;
 import com.android.systemui.statusbar.phone.StatusBar;
+import com.android.systemui.smartpixels.SmartPixelsReceiver;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -33,10 +34,13 @@ public class VendorServices extends SystemUI {
     private final StatusBar mStatusBar;
     private final ArrayList<Object> mServices = new ArrayList<>();
 
+    private SmartPixelsReceiver mSmartPixelsReceiver;
+
     public VendorServices(Context context, AlarmManager alarmManager, StatusBar statusBar) {
         super(context);
         mAlarmManager = alarmManager;
         mStatusBar = statusBar;
+        mSmartPixelsReceiver = new SmartPixelsReceiver(context);
     }
 
     @Override
