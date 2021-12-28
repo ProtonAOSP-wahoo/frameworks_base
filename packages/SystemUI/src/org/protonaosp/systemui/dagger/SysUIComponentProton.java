@@ -7,6 +7,9 @@ import com.android.systemui.dagger.SystemUIBinder;
 import com.android.systemui.dagger.SysUIComponent;
 import com.android.systemui.dagger.SystemUIModule;
 
+import org.protonaosp.systemui.keyguard.KeyguardSliceProviderProton;
+import org.protonaosp.systemui.smartspace.KeyguardSmartspaceController;
+
 import dagger.Subcomponent;
 
 @SysUISingleton
@@ -22,4 +25,12 @@ public interface SysUIComponentProton extends SysUIComponent {
     interface Builder extends SysUIComponent.Builder {
         SysUIComponentProton build();
     }
+
+    /**
+     * Member injection into the supplied argument.
+     */
+    void inject(KeyguardSliceProviderProton keyguardSliceProviderProton);
+
+    @SysUISingleton
+    KeyguardSmartspaceController createKeyguardSmartspaceController();
 }
