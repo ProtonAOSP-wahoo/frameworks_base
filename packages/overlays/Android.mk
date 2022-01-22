@@ -60,6 +60,8 @@ LOCAL_REQUIRED_MODULES := \
     IconPackOOSSettingsOverlay \
     IconPackOOSSystemUIOverlay \
     IconPackOOSThemePickerOverlay \
+    IconPackAcherusAndroidOverlay \
+    IconPackAcherusSystemUIOverlay \
     IconShapeCylinderOverlay \
     IconShapeHeartOverlay \
     IconShapeHexagonOverlay \
