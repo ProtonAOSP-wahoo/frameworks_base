@@ -16,20 +16,48 @@
 
 package com.android.systemui;
 
+import android.app.AlarmManager;
 import android.content.Context;
+import com.android.systemui.statusbar.phone.StatusBar;
 
-/**
- * Placeholder for any vendor-specific services.
- */
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import com.google.android.systemui.ambientmusic.AmbientIndicationContainer;
+import com.google.android.systemui.ambientmusic.AmbientIndicationService;
+
 public class VendorServices extends SystemUI {
 
-    public VendorServices(Context context) {
+    private final AlarmManager mAlarmManager;
+    private final StatusBar mStatusBar;
+    private final ArrayList<Object> mServices = new ArrayList<>();
+
+    public VendorServices(Context context, AlarmManager alarmManager, StatusBar statusBar) {
         super(context);
+        mAlarmManager = alarmManager;
+        mStatusBar = statusBar;
     }
 
     @Override
     public void start() {
-        // no-op
+        AmbientIndicationContainer ambientIndicationContainer = mStatusBar.getNotificationShadeWindowView().findViewById(R.id.ambient_indication_container);
+        ambientIndicationContainer.initializeView(mStatusBar);
+        addService(new AmbientIndicationService(mContext, ambientIndicationContainer, mAlarmManager));
     }
 
+    @Override
+    public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        for (int i = 0; i < mServices.size(); i++) {
+            if (mServices.get(i) instanceof Dumpable) {
+                ((Dumpable) mServices.get(i)).dump(fileDescriptor, printWriter, strArr);
+            }
+        }
+    }
+
+    private void addService(Object obj) {
+        if (obj != null) {
+            mServices.add(obj);
+        }
+    }
 }

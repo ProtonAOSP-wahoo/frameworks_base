@@ -84,8 +84,10 @@ android_library {
         "res-product",
         "res-keyguard",
         "res",
+        "res-ambientmusic",
     ],
     static_libs: [
+        "ambientmusic-google",
         "WindowManager-Shell",
         "SystemUIAnimationLib",
         "SystemUIPluginLib",

@@ -16,6 +16,7 @@
 
 package com.android.systemui.dagger;
 
+import android.app.AlarmManager;
 import android.app.INotificationManager;
 import android.content.Context;
 
@@ -27,6 +28,7 @@ import com.android.keyguard.dagger.KeyguardBouncerComponent;
 import com.android.systemui.BootCompleteCache;
 import com.android.systemui.BootCompleteCacheImpl;
 import com.android.systemui.SystemUIFactory;
+import com.android.systemui.VendorServices;
 import com.android.systemui.appops.dagger.AppOpsModule;
 import com.android.systemui.assist.AssistModule;
 import com.android.systemui.biometrics.UdfpsHbmProvider;
@@ -197,6 +199,12 @@ public abstract class SystemUIModule {
     @Provides
     static SmartspaceTransitionController provideSmartspaceTransitionController() {
         return new SmartspaceTransitionController();
+    }
+
+    @Provides
+    @SysUISingleton
+    static VendorServices provideVendorServices(Context context, AlarmManager am, StatusBar sb) {
+        return new VendorServices(context, am, sb);
     }
 
     // TODO: This should provided by the WM component
