@@ -83,7 +83,6 @@ android_library {
     resource_dirs: [
         "res-product",
         "res-keyguard",
-        "res-smartspace",
         "res",
         "res-ambientmusic",
     ],
@@ -123,6 +122,7 @@ android_library {
         "jsr330",
         "lottie",
         "tensorflowlite_java",
+        "bcsmartspace-res",
         "colorkt",
         "themelib",
         "//hardware/google/interfaces:com.google.hardware.pixel.display-V3-java",
