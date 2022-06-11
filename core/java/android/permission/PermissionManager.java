@@ -94,6 +94,7 @@ public final class PermissionManager {
     private static final String PHONE_SERVICES_PKG = "com.android.phone";
     private static final String BLUETOOTH_PKG = "com.android.bluetooth";
     private static final String PRINT_SPOOLER_PKG = "com.android.printspooler";
+    private static final String FACE_UNLOCK_PKG = "org.pixelexperience.faceunlock";
 
     /**
      * Refuse to install package if groups of permissions are bad
@@ -954,6 +955,7 @@ public final class PermissionManager {
         pkgNames.add(PHONE_SERVICES_PKG);
         pkgNames.add(BLUETOOTH_PKG);
         pkgNames.add(PRINT_SPOOLER_PKG);
+        pkgNames.add(FACE_UNLOCK_PKG);
         for (int i = 0; i < INDICATOR_EXEMPTED_PACKAGES.length; i++) {
             String exemptedPackage = INDICATOR_EXEMPTED_PACKAGES[i];
             if (exemptedPackage != null) {
