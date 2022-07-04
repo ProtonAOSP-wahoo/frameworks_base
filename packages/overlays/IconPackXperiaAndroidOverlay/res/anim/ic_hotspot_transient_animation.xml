@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <set android:ordering="sequentially">
+        <objectAnimator android:interpolator="@*android:interpolator/transient_interpolator" android:duration="500" android:valueFrom="1" android:valueTo="1" android:valueType="floatType" android:propertyName="fillAlpha"/>
+        <objectAnimator android:interpolator="@*android:interpolator/transient_interpolator" android:duration="300" android:valueFrom="0.3" android:valueTo="1" android:valueType="floatType" android:propertyName="fillAlpha"/>
+    </set>
+</set>

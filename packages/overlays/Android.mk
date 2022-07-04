@@ -43,6 +43,9 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackRoundedAndroidOverlay \
 	IconPackRoundedSettingsOverlay \
 	IconPackRoundedSystemUIOverlay \
+	IconPackXperiaAndroidOverlay \
+	IconPackXperiaSettingsOverlay \
+	IconPackXperiaSystemUIOverlay \
 	NavigationBarMode3ButtonOverlay \
 	NavigationBarModeGesturalOverlay \
 	NavigationBarModeGesturalOverlayNarrowBack \
